@@ -1,11 +1,15 @@
 name: DevOps Pipeline
+
 on: push
+
 jobs:
-  build: 
-    run-on: ubuntu-latest
-    steps:   
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
       - name: Checkout Code
         uses: actions/checkout@v3
+
       - name: Install dependencies
         run: pip install -r requirement.txt
 
@@ -17,6 +21,6 @@ jobs:
 
       - name: Run Container
         run: docker run devops-demo
-      
+
       - name: Deploy Application
         run: docker run devops-demo
